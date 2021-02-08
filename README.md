@@ -11,7 +11,7 @@ Sequel instrument, including:
 
 ## Documentation
 
-- CCS Software ([link](https://ccs.how/))
+- CCS Software ([docs](https://ccs.how/) / [code](https://github.com/PacificBiosciences/ccs))
 - SequelTools ([paper](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-020-03751-8) / [code](https://github.com/ISUgenomics/SequelTools))
 
 ## Usage
