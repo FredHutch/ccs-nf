@@ -1,0 +1,4 @@
+test.sh
+.nextflow*
+trace.txt*
+report.html*
