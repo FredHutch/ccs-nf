@@ -23,6 +23,8 @@ def helpMessage() {
     Optional Arguents:
       --n_shards            Number of shards to use for extracting the CCS from CLR
                             Default: 10
+      --min_passes          Minimum number of passes required for each CCS
+                            Default: 3
 
     For more details on SequelTools, see https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-020-03751-8.
     
@@ -37,6 +39,7 @@ params.input_folder = null
 params.prefix = null
 params.output_folder = null
 params.n_shards = 10
+params.min_passes = 3
 if (params.help || params.input_folder == null || params.output_folder == null){
     // Invoke the function above which prints the help message
     helpMessage()
@@ -104,7 +107,7 @@ process extract_ccs {
 
 set -Eeuo pipefail
 
-ccs ${subreads_bam} ${prefix}.ccs.bam -j ${task.cpus} --chunk ${shard_ix}/${params.n_shards}
+ccs ${subreads_bam} ${prefix}.ccs.bam -j ${task.cpus} --chunk ${shard_ix}/${params.n_shards} --minPasses ${params.min_passes}
 
 """
 
