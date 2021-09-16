@@ -59,7 +59,7 @@ process qc_metrics {
   label "mem_medium"
   errorStrategy 'finish'
 
-  publishDir "${params.output_folder}/${prefix}/qc/" 
+  publishDir "${params.output_folder}/${prefix}/qc/", mode: "copy", overwrite: true
   
   input:
     tuple val(prefix), file(subreads_bam), file(subreads_pbi), file(scraps_bam), file(scraps_pbi)
@@ -121,7 +121,7 @@ process merge_ccs {
   label "mem_medium"
   errorStrategy 'finish'
 
-  publishDir "${params.output_folder}/${prefix}/ccs/" 
+  publishDir "${params.output_folder}/${prefix}/ccs/", mode: "copy", overwrite: true
   
   input:
     tuple val(prefix), file("input.*.bam")
@@ -148,7 +148,7 @@ process extract_fastq {
   label "mem_medium"
   errorStrategy 'finish'
 
-  publishDir "${params.output_folder}/${prefix}/ccs/" 
+  publishDir "${params.output_folder}/${prefix}/ccs/", mode: "copy", overwrite: true
   
   input:
     tuple val(prefix), file(ccs_bam)
